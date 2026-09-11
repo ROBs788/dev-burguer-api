@@ -21,7 +21,6 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.15",
-    "sequelize-cli": "^6.6.5",
-    "source.organizeImports.biome": "explicit"
+    "sequelize-cli": "^6.6.5"
   }
 }

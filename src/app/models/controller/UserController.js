@@ -1,7 +1,8 @@
-import { v4 } from 'uuid';
-import User from '../User.js';
-import * as Yup from 'yup';
+
 import bcrypt from 'bcrypt';
+import { v4 } from 'uuid';
+import * as Yup from 'yup';
+import User from '../User.js';
 
 /*
 //  UserController
