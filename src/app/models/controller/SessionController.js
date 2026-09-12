@@ -14,10 +14,14 @@ class SessionController {
       strict: true,
     });
 
-    if (!isValid) {
+    const emailOrPasswordIncorrect = () =>{
       return response
         .status(400)
         .json({ error: 'Email or password incorrect ' });
+    }
+
+    if (!isValid) {
+        emailOrPasswordIncorrect()
     }
 
     const { email, password } = request.body;
@@ -31,9 +35,7 @@ class SessionController {
 
     //se existir um usuário com o mesmo email //
     if (!existingUser) {
-      return response
-        .status(400)
-        .json({ message: 'Email or password incorrect ' });
+      emailOrPasswordIncorrect();
     }
 
     const isPasswordCorret = await bcrypt.compare(
@@ -42,9 +44,7 @@ class SessionController {
     );
 
     if (!isPasswordCorret) {
-      return response
-        .status(400)
-        .json({ message: 'Email or password incorrect ' });
+      emailOrPasswordIncorrect();
     }
 
     return response.json({
